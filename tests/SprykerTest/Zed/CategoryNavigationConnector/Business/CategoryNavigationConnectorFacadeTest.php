@@ -50,12 +50,12 @@ class CategoryNavigationConnectorFacadeTest extends Unit
     {
         // Arrange
         $locale = $this->tester->haveLocale();
-        $activeCategory = $this->tester->haveLocalizedCategory([ 'locale' => $locale, CategoryTransfer::CATEGORY_NODE => [ NodeTransfer::IS_ROOT => false ], CategoryTransfer::IS_ACTIVE => $isActive ], true);
+        $category = $this->tester->haveLocalizedCategory([ 'locale' => $locale, CategoryTransfer::CATEGORY_NODE => [ NodeTransfer::IS_ROOT => false ], CategoryTransfer::IS_ACTIVE => $isActive ]);
         $navigation = $this->tester->haveNavigation();
 
         /** @var \Spryker\Zed\Url\Persistence\UrlQueryContainerInterface $urlQueryContainer */
         $urlQueryContainer = $this->tester->getLocator()->url()->queryContainer();
-        $urls = $urlQueryContainer->queryUrls()->filterByFkResourceCategorynode($activeCategory->getCategoryNode()->getIdCategoryNode())->find();
+        $urls = $urlQueryContainer->queryUrls()->filterByFkResourceCategorynode($category->getCategoryNode()->getIdCategoryNode())->find();
 
         $navigationNodes = [];
 
@@ -65,11 +65,11 @@ class CategoryNavigationConnectorFacadeTest extends Unit
                 NavigationNodeLocalizedAttributesTransfer::FK_URL => $url->getIdUrl(),
                 NavigationNodeLocalizedAttributesTransfer::FK_LOCALE => $locale->getIdLocale(),
                 NavigationNodeTransfer::IS_ACTIVE => !$isActive,
-            ], true);
+            ]);
         }
 
         // Act
-        $this->tester->getFacade()->updateCategoryNavigationNodesIsActive($activeCategory);
+        $this->tester->getFacade()->updateCategoryNavigationNodesIsActive($category);
 
         // Assert
 
