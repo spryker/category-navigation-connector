@@ -7,7 +7,7 @@
 
 namespace Spryker\Zed\CategoryNavigationConnector\Business\Model;
 
-interface NavigationNodesIsActiveUpdaterInterface
+interface NavigationNodeIsActiveUpdaterInterface
 {
     /**
      * @param int $idCategoryNode
