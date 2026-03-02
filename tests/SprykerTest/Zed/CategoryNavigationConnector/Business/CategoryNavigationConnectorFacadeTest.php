@@ -31,27 +31,16 @@ class CategoryNavigationConnectorFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testSetNavigationNodeToActiveWhenCategoryIsActive(): void
     {
         $this->setUpNavigationNodeCategoryTest(true);
     }
 
-    /**
-     * @return void
-     */
     public function testSetNavigationNodeToInactiveWhenCategoryIsInactive(): void
     {
         $this->setUpNavigationNodeCategoryTest(false);
     }
 
-    /**
-     * @param bool $isActive
-     *
-     * @return void
-     */
     protected function setUpNavigationNodeCategoryTest(bool $isActive): void
     {
         // Arrange

@@ -26,10 +26,6 @@ class NavigationNodeReader implements NavigationNodeReaderInterface
      */
     protected $navigationQueryContainer;
 
-    /**
-     * @param \Spryker\Zed\CategoryNavigationConnector\Dependency\QueryContainer\CategoryNavigationConnectorToCategoryQueryContainerInterface $categoryQueryContainer
-     * @param \Spryker\Zed\CategoryNavigationConnector\Dependency\QueryContainer\CategoryNavigationConnectorToNavigationQueryContainerInterface $navigationQueryContainer
-     */
     public function __construct(
         CategoryNavigationConnectorToCategoryQueryContainerInterface $categoryQueryContainer,
         CategoryNavigationConnectorToNavigationQueryContainerInterface $navigationQueryContainer
